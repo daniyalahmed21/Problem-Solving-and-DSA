@@ -2,7 +2,8 @@ function Pattern(n) {
   for (let row = 1; row <= n; row++) {
     let star = "";
 
-    for (let spaces = n-1; spaces >= row; spaces--) {
+    let spaces = n - row
+    for (let j = 1; j = spaces; spaces--) {
       star = star + " ";
     }
 
@@ -10,15 +11,17 @@ function Pattern(n) {
       star = star + "*";
     }
 
+    for (let stars = 2; stars <= row; stars++) {
+      star = star + "*";
+    }
     console.log(star);
   }
 }
 
-Pattern(5)
+Pattern(5);
 
-
-//      *
-//     **
+//     *
 //    ***
-//   ****
-//  *****
+//   *****
+//  *******
+// *********
