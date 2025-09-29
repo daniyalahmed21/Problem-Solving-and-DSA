@@ -24,3 +24,17 @@ function countNegativeElement(arr) {
 }
 
 console.log(countNegativeElement([1, -2, 3, -4]));
+
+// Write a function that returns largest number in an array
+
+function findLargestNumber(arr) {
+  let largestNumber = 0;
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] > largestNumber) {
+      largestNumber = arr[index]
+    }
+  }
+  return largestNumber;
+}
+
+console.log(findLargestNumber([1, -2, 3, -4]));
