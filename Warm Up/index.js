@@ -44,15 +44,23 @@ console.log(findLargestNumber([1, -2, 3, -4]));
 function findSecondLargestNumber(arr) {
   let largestNumber = -1;
   let SecondLargestNumber = -1;
+
+  if (arr.length < 2) {
+    return "Array should have at least 2 elements";
+  }
+
   for (let index = 0; index < arr.length; index++) {
     if (arr[index] > largestNumber) {
       SecondLargestNumber = largestNumber;
       largestNumber = arr[index];
-    } else if (arr[index] > SecondLargestNumber) {
+    } else if (
+      arr[index] > SecondLargestNumber &&
+      arr[index] !== largestNumber
+    ) {
       SecondLargestNumber = arr[index];
     }
   }
   return SecondLargestNumber;
 }
 
-console.log(findSecondLargestNumber([1, -2, 3, -4, 16, 7, 65, 9, 8]));
+console.log(findSecondLargestNumber([1, -2, 3, -4, 16, 65, 7, 65, 9, 8]));
