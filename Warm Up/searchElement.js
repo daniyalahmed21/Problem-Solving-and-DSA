@@ -9,4 +9,18 @@ function searchElement(arr, element) {
   return -1;
 }
 
-console.log(searchElement([1, 2, 3], 3))
+console.log(searchElement([1, 2, 3], 3));
+
+// Write a function that returns the number of negative numbers in an array
+
+function countNegativeElement(arr) {
+  let count = 0;
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] < 0) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(countNegativeElement([1, -2, 3, -4]));
