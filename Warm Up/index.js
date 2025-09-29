@@ -31,10 +31,28 @@ function findLargestNumber(arr) {
   let largestNumber = 0;
   for (let index = 0; index < arr.length; index++) {
     if (arr[index] > largestNumber) {
-      largestNumber = arr[index]
+      largestNumber = arr[index];
     }
   }
   return largestNumber;
 }
 
 console.log(findLargestNumber([1, -2, 3, -4]));
+
+// Write a function that returns Second largest number in an array
+
+function findSecondLargestNumber(arr) {
+  let largestNumber = -1;
+  let SecondLargestNumber = -1;
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] > largestNumber) {
+      SecondLargestNumber = largestNumber;
+      largestNumber = arr[index];
+    } else if (arr[index] > SecondLargestNumber) {
+      SecondLargestNumber = arr[index];
+    }
+  }
+  return SecondLargestNumber;
+}
+
+console.log(findSecondLargestNumber([1, -2, 3, -4, 16, 7, 65, 9, 8]));
