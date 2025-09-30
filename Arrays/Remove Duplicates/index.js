@@ -1,20 +1,18 @@
 var removeDuplicates = function (nums) {
-  const newArray = [];
-  let duplicates = 0;
-  for (let index = 0; index < nums.length; index++) {
-    if (!newArray.includes(nums[index])) {
-      newArray.push(nums[index]);
-    }
-    if (nums[index + 1] === nums[index + 2]) {
-      duplicates++;
+  if (nums.length === 0) return 0;
+
+  let k = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      nums[k] = nums[i];
+      k++;
     }
   }
 
-  for (let index = 0; index < duplicates; index++) {
-    newArray.push("_")
-    
-  }
-  return newArray
+  return k;
 };
 
-console.log(removeDuplicates([1,1,2]));
+const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+
+removeDuplicates(nums);
+console.log(nums);
