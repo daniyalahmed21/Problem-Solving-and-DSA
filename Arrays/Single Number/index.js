@@ -1,19 +1,12 @@
 var singleNumber = function (nums) {
-  let hashMap = {};
+  let xor = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (!hashMap[nums[i]]) {
-      hashMap[nums[i]] = 1;
-    } else {
-      hashMap[nums[i]]++;
-    }
+    xor = xor ^ nums[i];
   }
-  for (let i = 0; i < nums.length; i++) {
-    if (hashMap[nums[i]] === 1) {
-      return nums[i];
-    }
-  }
+  return xor
 };
 
-let nums = [2, 2, 1];
+let nums = [4, 1, 2, 1, 2];
 
 console.log(singleNumber(nums));
+console.log(nums);
