@@ -9,7 +9,6 @@ function InsertionSort(arr) {
     }
 
     arr[prev + 1] = curr;
-    console.log("Pass", i, ":", arr);
   }
 }
 
