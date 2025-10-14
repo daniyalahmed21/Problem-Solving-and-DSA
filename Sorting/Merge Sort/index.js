@@ -21,7 +21,7 @@ function merge(left, right) {
 }
 
 function mergeSort(arr) {
-  if (arr.length < 2) return arr; // base case
+  if (arr.length < 2) return arr; 
 
   let mid = Math.floor(arr.length / 2);
   let left = arr.slice(0, mid);
