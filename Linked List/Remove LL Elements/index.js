@@ -1,24 +1,13 @@
-var removeElements = function(head, val) {
-    if (!head) return null;
-    let prev = head
-    let current = head.next;
-
-    while (head && head.val === val) {
-        head = head.next;
-        prev = head;
-        current = head ? head.next : null;
+var removeElements = function (head, val) {
+  let sentinel = new ListNode();
+  sentinel.next = head;
+  let current = sentinel;
+  while (current && current.next) {
+    if (current.next.val === val) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
     }
-   
-
-    while (current) {
-        if (current.val === val) {
-            prev.next = current.next;
-            current = current.next;
-        } else {
-            prev = current;
-            current = current.next;
-        }
-    }
-
-    return head;
+  }
+  return sentinel.next;
 };
