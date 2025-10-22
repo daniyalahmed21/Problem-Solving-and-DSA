@@ -18,10 +18,9 @@ var addTwoNumbers = function (l1, l2) {
     current.next = new ListNode(digit);
     current = current.next;
 
-    if (l1) l1=l1.next
-    if (l2) l2=l2.next
-
+    if (l1) l1 = l1.next;
+    if (l2) l2 = l2.next;
   }
 
-  return dummyNode.next
+  return dummyNode.next;
 };
