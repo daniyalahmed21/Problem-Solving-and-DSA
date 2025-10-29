@@ -13,11 +13,24 @@
 
 //   return lastStringLength;
 // };
+var lengthOfLastWord = function (s) {
+  let n = s.length - 1
+  let count = 0
+  while (n>=0){
+    if(s[n] != " "){
+        ++count
+    }else if(count>0){
+        break
+    }
+    --n;
+  }
+  return count
+};
 
 console.log(lengthOfLastWord("   fly me   to   the moon  "));
 
 
-var lengthOfLastWord = function (s) {
-  let words = s.trim().split(" ");
-  return words[words.length - 1].length;
-};
+// var lengthOfLastWord = function (s) {
+//   let words = s.trim().split(" ");
+//   return words[words.length - 1].length;
+// };
