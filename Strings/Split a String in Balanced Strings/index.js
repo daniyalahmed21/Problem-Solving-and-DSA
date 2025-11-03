@@ -1,27 +1,20 @@
 var balancedStringSplit = function (s) {
-  let subStrings = [];
-  let subString = "";
-  let numOfR = 0;
-  let numOfL = 0;
+  let temp = 0;
+  let count = 0;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === "R") {
-      numOfR++;
-      subString += "R";
+      temp++;
     } else {
-      numOfL++;
-      subString += "L";
+      temp--;
     }
 
-    if (numOfL === numOfR) {
-      subStrings.push(subString);
-      numOfL = 0;
-      numOfR = 0;
-      subString=""
+    if (temp === 0) {
+      count++;
     }
   }
 
-  return subStrings.length
+  return count;
 };
 
 let s = "RLRRLLRLRL";
