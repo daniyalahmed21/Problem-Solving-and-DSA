@@ -8,15 +8,15 @@ var MinStack = function () {
  */
 MinStack.prototype.push = function (val) {
   if (this.stack.length > 0) {
-    let lastMinVal = Number(this.stack[this.stack.length - 1].split(",")[1]);
+    let lastMinVal = Number(this.stack[this.stack.length - 1][1]);
     console.log(lastMinVal)
     if (lastMinVal < val) {
-      this.stack.push(`${val},${lastMinVal}`);
+      this.stack.push([val,lastMinVal]);
     } else {
-      this.stack.push(`${val},${val}`);
+      this.stack.push([val,val]);
     }
   } else {
-    this.stack.push(`${val},${val}`);
+    this.stack.push([val,val]);
   }
 };
 
@@ -31,14 +31,14 @@ MinStack.prototype.pop = function () {
  * @return {number}
  */
 MinStack.prototype.top = function () {
-  return Number(this.stack[this.stack.length - 1].split(",")[0]);
+  return Number(this.stack[this.stack.length - 1][0]);
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function () {
-  return Number(this.stack[this.stack.length - 1].split(",")[1]);
+  return Number(this.stack[this.stack.length - 1][1]);
 };
 
 let minStack = new MinStack();
