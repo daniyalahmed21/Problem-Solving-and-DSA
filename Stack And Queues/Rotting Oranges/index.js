@@ -1,13 +1,12 @@
-var orangesRotting = function(grid) {
-  const rows = grid.length;
-  const cols = grid[0].length;
-  const queue = [];
+var orangesRotting = function (grid) {
+  let rows = grid.length;
+  let columns = grid[0].length;
   let fresh = 0;
-  let minutes = 0;
+  let queue = [];
+  let minutes = 0
 
-  // Step 1: Collect all rotten oranges and count fresh ones
   for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
+    for (let j = 0; j < columns; j++) {
       if (grid[i][j] === 2) {
         queue.push([i, j]);
       } else if (grid[i][j] === 1) {
@@ -16,26 +15,26 @@ var orangesRotting = function(grid) {
     }
   }
 
-  // Directions: up, down, left, right
-  const directions = [
-    [0, 1], [0, -1],
-    [1, 0], [-1, 0]
+  let directions = [
+    [0, 1],
+    [1, 0],
+    [-1, 0],
+    [0, -1],
   ];
 
-  // Step 2: BFS traversal
-  while (queue.length > 0 && fresh > 0) {
+  while (fresh > 0 && queue.length > 0) {
     let size = queue.length;
     for (let k = 0; k < size; k++) {
-      const [x, y] = queue.shift();
-
+      let [x, y] = queue.shift();
       for (const [dx, dy] of directions) {
-        const nx = x + dx;
-        const ny = y + dy;
+        let nx = x + dx;
+        let ny = y + dy;
 
-        // Check bounds and if the orange is fresh
         if (
-          nx >= 0 && ny >= 0 &&
-          nx < rows && ny < cols &&
+          nx >= 0 &&
+          ny >= 0 &&
+          nx < rows &&
+          ny < columns &&
           grid[nx][ny] === 1
         ) {
           grid[nx][ny] = 2;
@@ -44,12 +43,17 @@ var orangesRotting = function(grid) {
         }
       }
     }
-    minutes++;
+    minutes++ ;
   }
 
-  return fresh === 0 ? minutes : -1;
+  return fresh===0 ? minutes : -1
+
 };
 
-let grid = [[2,1,1],[1,1,0],[0,1,1]]
+let grid = [
+  [2, 1, 1],
+  [1, 1, 0],
+  [0, 1, 1],
+];
 
 console.log(orangesRotting(grid));
