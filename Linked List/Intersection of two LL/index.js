@@ -1,61 +1,75 @@
 var getIntersectionNode = function (headA, headB) {
-  let hashMap = new Set();
+    let PA = headA
+    let PB = headB
 
-  if (!headA || !headB) return null;
+    while (PA !== PB) {
+        PA = PA === null ? headB : PA.next
+        PB = PB === null ? headA : PB.next
+    }
 
-  let currentA = headA;
-  let currentB = headB;
-
-  while (currentB) {
-    hashMap.add(currentB);
-    currentB = currentB.next;
-  }
-
-  while (currentA) {
-    if (hashMap.has(currentA)) return currentA;
-    currentA = currentA.next;
-  }
-
-  return null;
+    return PA
 };
 
-var getIntersectionNode = function (headA, headB) {
-  if (!headA || !headB) return null;
+// var getIntersectionNode = function (headA, headB) {
+//   let hashMap = new Set();
 
-  let currentA = headA;
-  let currentB = headB;
+//   if (!headA || !headB) return null;
 
-  let n = 0;
-  while (currentA) {
-    n++;
-    currentA = currentA.next;
-  }
+//   let currentA = headA;
+//   let currentB = headB;
 
-  let m = 0;
-  while (currentB) {
-    m++;
-    currentB = currentB.next;
-  }
+//   while (currentB) {
+//     hashMap.add(currentB);
+//     currentB = currentB.next;
+//   }
 
-  let diff = Math.abs(n- m);
+//   while (currentA) {
+//     if (hashMap.has(currentA)) return currentA;
+//     currentA = currentA.next;
+//   }
 
-  if(n>m){
-    let temp = headA
-    headA = headB
-    headB = temp
-  }
+//   return null;
+// };
 
-  for (let i = 0; i < diff; i++) {
-   headB = headB.next
-  }
+// var getIntersectionNode = function (headA, headB) {
+//   if (!headA || !headB) return null;
 
-  currentA = headA;
-  currentB = headB;
+//   let currentA = headA;
+//   let currentB = headB;
 
-  while(currentA !== currentB){
-    currentA = currentA.next
-    currentB = currentB.next
-  }
+//   let n = 0;
+//   while (currentA) {
+//     n++;
+//     currentA = currentA.next;
+//   }
 
-  return currentA
-};
+//   let m = 0;
+//   while (currentB) {
+//     m++;
+//     currentB = currentB.next;
+//   }
+
+//   let diff = Math.abs(n- m);
+
+//   if(n>m){
+//     let temp = headA
+//     headA = headB
+//     headB = temp
+//   }
+
+//   for (let i = 0; i < diff; i++) {
+//    headB = headB.next
+//   }
+
+//   currentA = headA;
+//   currentB = headB;
+
+//   while(currentA !== currentB){
+//     currentA = currentA.next
+//     currentB = currentB.next
+//   }
+
+//   return currentA
+// };
+
+
