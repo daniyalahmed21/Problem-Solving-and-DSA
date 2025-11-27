@@ -31,25 +31,13 @@
 var preorderTraversal = function (root) {
   let ans = [];
   let stack = [];
-  if (!root) {
-    return [];
-  }
-  stack.push(root[0]);
+  stack.push(root);
   while (stack.length >= 1) {
-    console.log(stack);
     let curr = stack.pop();
-    console.log(curr);
-    if (curr) {
-      if (curr && curr.right) {
-        stack.push(curr.right);
-      }
-      if (curr && curr.left) {
-        stack.push(curr.left);
-      }
+        curr.right && stack.push(curr.right);
+        curr.left && stack.push(curr.left);
       ans.push(curr.val);
     }
-  }
-
   return ans;
 };
 
