@@ -17,22 +17,22 @@
 // };
 
 
-var levelOrder = function (root) {
-    if (!root) return [];
+// var levelOrder = function (root) {
+//     if (!root) return [];
 
-    let ans = [];
+//     let ans = [];
 
-    function traverse(node, level) {
-        if (!node) return;
+//     function traverse(node, level) {
+//         if (!node) return;
 
-        if (!ans[level]) ans[level] = [];
+//         if (!ans[level]) ans[level] = [];
 
-        ans[level].push(node.val);
+//         ans[level].push(node.val);
 
-        traverse(node.left, level + 1);
-        traverse(node.right, level + 1);
-    }
+//         traverse(node.left, level + 1);
+//         traverse(node.right, level + 1);
+//     }
 
-    traverse(root, 0);
-    return ans;
-};
+//     traverse(root, 0);
+//     return ans;
+// };
