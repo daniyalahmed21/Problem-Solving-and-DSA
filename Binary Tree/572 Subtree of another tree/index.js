@@ -16,3 +16,25 @@ var isSubtree = function (root, subRoot) {
 
     return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 };
+
+var isSubtree = function (root, subRoot) {
+    let rootHash = buildHash(root);
+    let subHash = buildHash(subRoot);
+    return rootHash.includes(subHash);
+};
+
+function buildHash(node) {
+    let str = "-";
+    let stack = [node];
+    while (stack.length) {
+        let curr = stack.pop();
+        if (!curr) {
+            str += "X-";
+        } else {
+            str += curr.val + "-";
+            stack.push(curr.right);
+            stack.push(curr.left);
+        }
+    }
+    return str;
+}
