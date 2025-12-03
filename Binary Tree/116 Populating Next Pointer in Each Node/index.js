@@ -19,3 +19,17 @@ var connect = function (root) {
 
     return root;
 };
+
+
+var connect = function (root) {
+    if (!root) return root;
+
+    function Traverse(curr) {
+        if (curr.left) curr.left.next = curr.right
+        if (curr.right && curr.next) curr.right.next = curr.next.left 
+        if (curr.left) Traverse(curr.left);
+        if (curr.right) Traverse(curr.right);
+    }
+    Traverse(root)
+    return root;
+};
