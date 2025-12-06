@@ -1,13 +1,19 @@
+
 var kthSmallest = function (root, k) {
-    let ans = []
-    function Traverse(node){
+    let ans = null
+    let count = k
+    function Traverse(node) {
+        if (ans) return
         if (!node) return
         Traverse(node.left)
-        ans.push(node.val)
+        --count
+        if (count === 0) {
+            ans= node.val
+        }
         Traverse(node.right)
 
     }
     Traverse(root)
 
-    return ans[k - 1]
+    return ans
 };
