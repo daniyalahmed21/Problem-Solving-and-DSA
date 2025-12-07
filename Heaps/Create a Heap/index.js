@@ -35,6 +35,35 @@ class MinHeap {
       }
     }
   }
+
+  extractMin() {
+    if (this.heap.length < 1) return null;
+    let lastIndex = this.heap.length - 1;
+    [this.heap[0], this.heap[lastIndex]] = [this.heap[lastIndex], this.heap[0]];
+    let min = this.heap.pop();
+    this.heapifyDown(0);
+
+    return min;
+  }
+
+  heapifyDown(i) {
+    let rightIndex = this.getRightIndex(i);
+    let leftIndex = this.getLeftIndex(i);
+    let n = this.heap.length;
+    let smallest = i;
+
+    if (leftIndex < n && this.heap[smallest] > this.heap[leftIndex]) {
+      smallest = leftIndex;
+    }
+    if (rightIndex < n && this.heap[smallest] > this.heap[rightIndex]) {
+      smallest = rightIndex;
+    }
+
+    if (smallest !== i) {
+      [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]];
+      this.heapifyDown(smallest); // Recursively heapify down the smallest child
+    }
+  }
 }
 
 let heap = new MinHeap();
@@ -44,4 +73,8 @@ heap.insertElement(25);
 heap.insertElement(12);
 heap.insertElement(15);
 
-console.log(heap.heap);
+console.log(heap.heap); // Check heap structure after inserts
+
+console.log(heap.extractMin()); // Should print 10
+
+console.log(heap.heap); // Check heap structure after extraction
