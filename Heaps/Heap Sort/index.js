@@ -7,14 +7,12 @@ function HeapSort(arr) {
     HeapifyDown(arr, i, n);
   }
 
-  console.log(arr);
-
   for (let i = n - 1; i > 0; i--) {
     [arr[0], arr[i]] = [arr[i], arr[0]];
     HeapifyDown(arr, 0, i);
   }
 
-  return arr
+  return arr;
 }
 
 function HeapifyDown(arr, i, n) {
